@@ -1,0 +1,36 @@
+﻿command:
+  cannot_be_used_by_console: "&l&a[&7EndlessPixel&l&a]此命令无法通过控制台使用！该命令依赖于玩家的交互上下文，只有在游戏中由玩家执行才能正常工作。"
+  cannot_edit_owner: '&l&a[&7EndlessPixel&l&a]&4你无法更改保护的所有者。所有者信息是保护机制的核心，一旦设定，为保证保护的安全性和稳定性，只能通过摧毁该标识牌来重新设置。'
+  line_number_out_of_bounds: '&l&a[&7EndlessPixel&l&a]&4请输入 2 到 4 之间的行号（包括 2 和 4）。标识牌上只有 2 到 4 行可用于编辑相关信息，输入超出此范围的行号将无法正确操作。'
+  no_permission: '&l&a[&7EndlessPixel&l&a]&4你没有权限执行此命令，抱歉！执行该命令需要特定的权限等级，若没有相应权限，系统将禁止操作以维护游戏的平衡性和安全性。'
+  no_sign_selected: '&l&a[&7EndlessPixel&l&a]&4你必须先选择一个受保护的方块上的标识牌，方法是右键点击它。此命令需要针对受保护方块上的标识牌进行操作，未选中标识牌则无法继续执行。'
+  player_name_too_long: '&l&a[&7EndlessPixel&l&a]&4玩家名称超过 16 个字符，无法显示在标识牌上，且超过了 Mojang 允许的玩家名称长度。标识牌的显示空间有限，同时 Mojang 对玩家名称长度也有限制，过长的名称将无法正确显示和处理。'
+  plugin_reloaded: '&l&a[&7EndlessPixel&l&a]&6已重新加载配置文件！配置文件重新加载后，插件将应用新的设置，可能会影响游戏中相关功能的表现。'
+  sign_no_longer_part_of_protection: '&l&a[&7EndlessPixel&l&a]&4所选标识牌不再属于受保护的方块。可能是保护范围发生了变化或者标识牌被移动，导致该标识牌与受保护方块失去关联。'
+  updated_sign: '&l&a[&7EndlessPixel&l&a]&6已更新标识牌！标识牌更新后，相关的保护信息将同步更新，确保保护机制正常运行。'
+
+protection:
+  add_more_users_sign_instead: '&l&a[&7EndlessPixel&l&a]&4一个保护只能有一个 [Private] 标识牌。为了管理更多可访问的用户，请添加一个 [More Users] 标识牌，这样可以更灵活地控制访问权限。'
+  bypassed: '&l&a[&7EndlessPixel&l&a]&6你刚刚绕过了 玩家：{0} 的保护。由于你拥有特殊权限或满足特定条件，系统允许你绕过该玩家设置的保护，但请谨慎操作，避免侵犯他人权益。'
+  cannot_change_sign: '&l&a[&7EndlessPixel&l&a]&4你无法更改已声明容器附近的标识牌。已声明容器的标识牌用于维护容器的保护状态，随意更改可能导致保护机制失效，因此只有特定权限的用户才能操作。'
+  chest_hint: '&l&a[&7EndlessPixel&l&a]&6在该箱子上放置一个标识牌以保护它。放置标识牌后，你可以设置访问权限，防止其他玩家未经授权访问该箱子。'
+  claimed_container: '&l&a[&7EndlessPixel&l&a]&6已声明该容器。其他人无法访问它。你已成功保护该容器，只有你或你授权的用户才能对其进行操作。'
+  claimed_manually: '&l&a[&7EndlessPixel&l&a]&6已创建声明。只有标识牌上列出的人可以访问它。通过手动创建声明，你可以精确控制哪些玩家能够访问该方块，保障个人物品的安全。'
+  expired: '&l&a[&7EndlessPixel&l&a]&6由于所有者长时间未活动，该方块的保护已过期。为了合理利用游戏资源，系统会对长时间未使用的保护进行过期处理。'
+  in_wilderness: '&l&a[&7EndlessPixel&l&a]&4你无法在此处创建保护：你处于荒野区域。荒野区域为公共区域，为了保持游戏的公平性和开放性，禁止在该区域创建保护。'
+  is_claimed_by: '&l&a[&7EndlessPixel&l&a]&6该方块已被 玩家：{0} 声明。该方块已被其他玩家保护，未经授权请勿尝试访问。'
+  no_access: '&l&a[&7EndlessPixel&l&a]&4你无法使用该方块，它被 玩家：{0} 保护。该方块的所有者设置了访问权限，你没有被授权访问，请尊重他人的保护设置。'
+  no_permission_for_claim: '&l&a[&7EndlessPixel&l&a]&4你没有权限声明一个容器，抱歉。声明容器需要特定的权限，若没有相应权限，系统将禁止你创建保护。'
+  not_nearby: '&l&a[&7EndlessPixel&l&a]&4附近没有可保护的方块。（Shift-）右键点击一个容器，手持标识牌以保护它。保护功能需要针对特定的容器，附近没有符合条件的容器时无法进行保护操作。'
+
+tag:
+  everyone: "所有人"
+  more_users: '[更多用户]'
+  private: '[私有]'
+  redstone: '红石'
+  timer: '计时器'
+
+updater:
+  more_information: '&l&a[&7EndlessPixel&l&a]&6更多信息：{0}。点击链接可以获取关于更新或相关问题的详细说明，帮助你更好地了解情况。'
+  unsupported_server: '&l&a[&7EndlessPixel&l&a]&4最新版本的 EndlessPixleLocker（版本 {0}）不再支持此 Minecraft 版本，仅支持 Minecraft {1}。为了保证插件的正常运行和功能完整性，请使用支持的 Minecraft 版本。'
+  update_available: '&l&a[&7EndlessPixel&l&a]&6EndlessPixleLocker（版本 {0}）的更新可供手动下载。更新可能包含新功能、性能优化和 bug 修复，建议及时下载更新以获得更好的游戏体验。'
