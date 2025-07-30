@@ -1,0 +1,306 @@
+##########
+# 语言设置 #
+##########
+
+# 翻译和消息选项设置
+messages:
+    # 默认用于消息和命令的语言代码。
+    # 必须是用下划线分隔的字符串。
+    locale: zh-cn
+    # 发送到控制台的消息和命令的语言代码。
+    # 如果你想让控制台使用与玩家不同的语言，这个设置会很有用。
+    # 我们建议保持默认值，因为我们主要只提供英文支持。
+    # 必须是用下划线分隔的字符串。
+    consoleLocale: en
+    # 禁用 SkinsRestorer 消息中的前缀。
+    disablePrefix: true
+    # 如果有可用翻译，插件发送的每条消息都将使用玩家客户端的语言。
+    # 如果禁用，将改用配置文件中的语言设置。
+    perIssuerLocale: true
+    # 插件在消息中格式化日期的方式。格式说明见此处：
+    dateFormat: yyyy MMMM dd 
+
+############
+# 数据库设置 #
+############
+
+# 数据库皮肤存储设置（推荐用于拥有大量皮肤的大型网络）
+# [!] 请确保为你的 MySQL 用户设置了正确的权限。 [!]
+# [!] 如果你使用证书/SSL 认证，请务必填写 database.connectionOptions。 [!]
+# [!] 如果你不使用 SSL，请将 sslMode=trust 改为 sslMode=disable。 [!]
+database:
+    enabled: false
+    host: localhost
+    port: 3306
+    database: db
+    username: root
+    password: pass
+    maxPoolSize: 10
+    tablePrefix: sr_
+    connectionOptions: sslMode=trust&serverTimezone=UTC
+
+############
+# 命令设置 #
+############
+
+# 控制命令的行为。
+commands:
+    # 要使所有玩家命令默认生效，你需要给玩家 'skinsrestorer.player' 权限。
+    # 此选项允许你强制将默认权限（skinsrestorer.player）赋予所有玩家。
+    # 值为 'false' 会禁用此行为，玩家需要被明确赋予该权限。
+    # 这是因为某些平台（如 BungeeCord）没有默认权限系统。
+    # 如果你的平台支持默认权限，此选项将被忽略。
+    forceDefaultPermissions: true
+    # 玩家更换皮肤的冷却时间（秒）（设置为 0 可禁用）。
+    # 当出现错误或无效链接时，使用 SkinErrorCooldown。
+    # 可以使用 'skinsrestorer.bypasscooldown' 权限绕过。
+    skinChangeCooldown: 0
+    # 玩家获取头颅的冷却时间（秒）（设置为 0 可禁用）。
+    # 当出现错误或无效链接时，使用 SkullErrorCooldown。
+    # 可以使用 'skinsrestorer.bypasscooldown' 权限绕过。
+    skullGetCooldown: 0
+    skinErrorCooldown: 5
+    skullErrorCooldown: 5
+    # 启用后，仅允许使用 `/skin url <url>` 命令设置以下列表中的网站链接的皮肤。
+    # [?] 若你搭建了自己的图片服务器，此功能会很有用。
+    restrictSkinUrls:
+        enabled: false
+        list: 
+        - https://i.imgur.com
+        - http://i.imgur.com
+        - https://storage.googleapis.com
+        - http://storage.googleapis.com
+        - https://cdn.discordapp.com
+        - http://cdn.discordapp.com
+        - https://textures.minecraft.net
+        - http://textures.minecraft.net
+    # 此列表中的皮肤将被禁用，因此用户无法设置它们。
+    # 可以使用 'skinsrestorer.bypassdisabled' 权限绕过。
+    disabledSkins:
+        enabled: false
+        list: 
+        - steve
+        - owner
+    # 要启用每个皮肤的权限，你必须同意以下规则：
+    # - 不要对玩家使用自己的皮肤进行收费
+    # - 不要强制玩家使用史蒂夫皮肤，并让他们付费使用自己的皮肤
+    # - 你可以对自定义皮肤收费，但不能对玩家自己的皮肤收费
+    # 如果你同意，请将此项设置为：'I will follow the rules'
+    perSkinPermissionsConsent: ''
+    # 允许使用每个皮肤的权限。
+    # 示例：skinsrestorer.skin.xknat 或 skinsrestorer.skin.Pistonmaster
+    # 使用 "skinsrestorer.ownskin" 权限，玩家可以运行 /skin set <他们自己的名字>。
+    # [!] 仅在你正确设置了权限并清楚自己在做什么时启用。
+    # [!] 仅当 'commands.perSkinPermissionsConsent' 已同意时，此选项才有效。
+    perSkinPermissions: false
+    # 存储在玩家命令历史记录中的命令数量。
+    # 用于 /skin undo 命令。
+    # 使用 0 可禁用命令历史记录存储。
+    maxHistoryLength: 36
+    # 玩家可以拥有的收藏皮肤数量。
+    # 用于 /skin favourite 命令。
+    # 使用 0 可禁用收藏皮肤存储。
+    maxFavouriteLength: 180
+    customHelp:
+        # 使用自定义帮助消息覆盖自动生成的翻译后的帮助消息。
+        # 如果你想为服务器设置自定义帮助消息，这个选项会很有用。
+        # 这仅影响运行 /skin 不带参数时的基础帮助消息，不影响错误/子命令帮助消息。
+        enabled: false
+        # 当玩家运行 /skin 不带参数时发送给玩家的自定义帮助消息。
+        message: 
+        - <yellow>皮肤指令
+        - <gray>---------------------
+        - <gray>/skin set <皮肤名> - <yellow>设置皮肤
+    # <!! 警告 !!>
+    # 此选项将禁用服务器上的 /skin 命令注册。
+    # 除非你要用其他插件覆盖 /skin 命令，或者不想使用皮肤命令，否则不要禁用此选项。
+    # 需要重启服务器才能生效。
+    disableSkinCommand: false
+    # <!! 警告 !!>
+    # 此选项将禁用服务器上的 /skull 命令注册。
+    # 除非你要用其他插件覆盖 /skull 命令，或者不想使用头颅命令，否则不要禁用此选项。
+    # 需要重启服务器才能生效。
+    disableSkullCommand: false
+    # <!! 警告 !!>
+    # 此选项将禁用服务器上的 /skins 命令注册。
+    # 除非你要用其他插件覆盖 /skins 命令，或者不想使用 GUI 命令，否则不要禁用此选项。
+    # 需要重启服务器才能生效。
+    disableGUICommand: false
+
+# 控制 /skins GUI 中显示的皮肤
+gui:
+    # 控制当玩家没有某个皮肤的权限时显示的皮肤。
+    # 这是皮肤纹理 URL 的末尾部分。
+    # 你可以通过 /sr info skin <皮肤名> 获取纹理 URL。
+    notUnlockedSkin: c10591e6909e6a281b371836e462d67a2c78fa0952e910f32b41a26c48c1757c
+    # 控制 /skins GUI 中的自定义皮肤
+    custom:
+        # 是否在 /skins GUI 中启用自定义皮肤
+        enabled: true
+        # 自定义皮肤相对于其他皮肤类型的显示顺序
+        index: 0
+        # 是否只允许在 /skins GUI 中显示特定的自定义皮肤
+        onlyShowList: false
+        # 在 /skins GUI 中显示的特定自定义皮肤
+        list: 
+        - xknat
+        - pistonmaster
+    # 控制 /skins GUI 中的玩家皮肤
+    players:
+        # 是否在 /skins GUI 中启用玩家皮肤
+        enabled: true
+        # 玩家皮肤相对于其他皮肤类型的显示顺序
+        index: 1
+        # 是否只允许在 /skins GUI 中显示特定的玩家皮肤
+        onlyShowList: false
+        # 在 /skins GUI 中显示的特定玩家皮肤
+        list: 
+        - 7dcfc130-344a-4719-9fbe-3176bc2075c6
+        - b1ae0778-4817-436c-96a3-a72c67cda060
+    # 控制 /skins GUI 中的推荐皮肤
+    recommendations:
+        # 是否在 /skins GUI 中启用推荐皮肤
+        enabled: true
+        # 推荐皮肤相对于其他皮肤类型的显示顺序
+        index: 2
+        # 是否只允许在 /skins GUI 中显示特定的推荐皮肤
+        onlyShowList: false
+        # 在 /skins GUI 中显示的特定推荐皮肤
+        list: 
+        - vampire
+        - space-suit
+
+###########
+# 存储设置 #
+###########
+
+# 在这里你可以按自己的需求设计插件。
+
+# 启用或禁用默认皮肤
+# applyForPremium: false 只会给没有皮肤/使用史蒂夫皮肤的玩家设置皮肤。
+# 如果有多个默认皮肤，插件将随机选择一个。
+# [?] 支持自定义皮肤和 url.png 皮肤，阅读下面的皮肤文件生成器说明。
+storage:
+    defaultSkins:
+        enabled: false
+        applyForPremium: false
+        list: 
+        - xknat
+        - pistonmaster
+    # <!! 警告 !!>
+    # 启用此选项将要求玩家运行 "/skin update" 来更新他们的皮肤。
+    disallowAutoUpdateSkin: false
+    # 皮肤在数据库中存储多长时间后会再次请求（分钟）。
+    # [?] 值为 0 会始终触发对 Mojang API 的请求。
+    # [!] 降低此值会增加请求量，这在大型服务器上可能会有问题。
+    skinExpiresAfter: 0
+    # 我们应该缓存玩家 UUID 的时长（分钟）。
+    # [?] 值为 0 会始终触发对 Mojang API 的请求。
+    # [!] 降低此值会增加请求量，这在大型服务器上可能会有问题。
+    uuidExpiresAfter: 600
+
+#########
+# 代理设置 #
+#########
+
+# 在此更改代理相关设置。
+proxy:
+    # 在特定后端服务器上禁用所有 SkinsRestorer 命令。
+    # [!] 仅在你使用 BungeeCord / Velocity 等代理时有效且相关。
+    notAllowedCommandServers:
+        # 是否启用后端服务器命令阻止功能。
+        enabled: true
+        # 在玩家加入服务器前阻止其执行 SkinsRestorer 命令。
+        ifNoServerBlockCommand: true
+        # 为 false 时，表示列表中的服务器不允许执行 SkinsRestorer 命令；为 true 时，表示仅列表中的服务器允许执行 SkinsRestorer 命令。
+        allowList: false
+        # 根据 'allowList' 设置，允许/不允许执行 SkinsRestorer 命令的服务器列表。
+        list: 
+        - auth
+
+##########
+# 服务器设置 #
+##########
+
+# 在此更改服务器相关设置。
+server:
+    # 禁用此选项将阻止 SkinsRestorer 在玩家加载服务器资源包时更改皮肤。
+    # 当玩家加载服务器资源包时，他们的皮肤会被重置。默认情况下，当玩家报告资源包已加载或出现错误时，SkinsRestorer 会重新应用皮肤。
+    resourcePackFix: true
+    # 在玩家皮肤更新时让骑乘（骑在马上或坐着）的玩家下马，防止玩家出现不同步的情况。
+    # 文件覆盖 = ./plugins/SkinsRestorer/disableDismountPlayer.txt
+    dismountPlayerOnSkinUpdate: true
+    # 重新骑上因皮肤更新而下马的玩家（上述选项必须为 true）。
+    # 仅在你使用允许玩家骑乘其他玩家或坐下的插件时，才建议禁用此选项。否则可能会出现错误或玩家因飞行而被踢出。
+    # 文件覆盖 = ./plugins/SkinsRestorer/disableRemountPlayer.txt
+    remountPlayerOnSkinUpdate: true
+    # 让骑乘某个玩家的所有乘客下马（例如允许骑乘其他玩家的插件），防止这些玩家出现不同步的情况。
+    # 文件覆盖 = ./plugins/SkinsRestorer/enableDismountEntities.txt
+    dismountPassengersOnSkinUpdate: false
+    sound:
+        # 当玩家运行 /skin 命令更改皮肤时播放音效。
+        enabled: true
+        # 当玩家运行 /skin 命令更改皮肤时播放的音效。
+        # 你可以在以下链接找到允许的格式和值
+        # https://javadoc.io/static/com.github.cryptomorin/XSeries/11.0.0/com/cryptomorin/xseries/XSound.html#parse(java.lang.String)
+        value: ENTITY_PLAYER_TELEPORT, 0.7
+login:
+    # 如果登录事件被反作弊插件取消，则停止设置皮肤的过程。
+    # [?] 不确定？保持为 true 以获得更好的性能。
+    noSkinIfLoginCanceled: true
+    # 这将使 SkinsRestorer 即使玩家在在线模式服务器上以正版身份加入，也始终应用皮肤。
+    alwaysApplyPremium: false
+api:
+    # 在此填写你的 API 密钥，以缩短 MineSkin 请求时间。
+    # 密钥可从 https://mineskin.org/apikey 请求。
+    # [?] 密钥不是必需的，但建议使用。
+    mineskinAPIKey: key
+    # SkinsRestorer 使用 MineSkin 从链接生成可用皮肤。
+    # MineSkin 生成的所有皮肤默认会显示在其网站的公共画廊中。
+    # 启用此选项将隐藏 MineSkin 生成的所有皮肤，使其不在公共画廊中显示。
+    mineskinSecretSkins: false
+    # SkinsRestorer 为玩家提供精选的推荐皮肤供使用
+    # 这些皮肤可以通过 /skin random 和 /skins GUI 使用
+    # 如果你想退出此功能，请将此选项设置为 false。
+    # 这将阻止从存储中加载推荐皮肤并下载新的推荐皮肤。
+    # 请注意，像 /skin random 这样的命令在没有此功能的情况下将无法工作。
+    fetchRecommendedSkins: true
+
+###############
+# 危险区域 #
+###############
+
+# 如果你不知道自己在做什么，绝对不要更改此处的设置！
+advanced:
+    # <!! 警告 !!>
+    # 启用此选项将阻止 SkinsRestorer 在玩家加入时更改皮肤。
+    # 当你想在纹理包弹窗后运行 /skin apply 来应用皮肤时，此选项很有用。
+    disableOnJoinSkins: false
+    # <!! 警告 !!>
+    # 这将启用 PaperMC 加入事件集成，允许玩家加入时立即应用皮肤。
+    # 建议使用此选项而不是备用监听器，因为它更流畅，并且不会导致服务器卡顿。
+    # 它还能解决所有资源包皮肤应用问题。
+    # 如果你的玩家遇到极长的加载屏幕，尝试禁用此选项。
+    enablePaperJoinListener: true
+    # <!! 警告 !!>
+    # 启用后，SkinsRestorer 将不会尝试连接任何 Web 服务器，这意味着以下功能将无法工作：
+    # 从 Mojang 获取新皮肤、查找玩家的 UUID、皮肤链接、更新检查等。
+    # SkinsRestorer 将只能访问已下载的皮肤。
+    # 这对于没有连接到互联网或有防火墙阻止连接的服务器很有用。
+    noConnections: false
+
+# 更新程序设置
+# <!! 警告 !!>
+# 使用过时版本将失去支持、兼容性和稳定性。
+
+# 要阻止所有类型的自动更新（这可能会使漏洞持续存在）：
+# 在插件目录（./plugins/SkinsRestorer/ ）中创建一个名为 'noupdate.txt' 的文件。
+
+################
+# 开发者区域 #
+################
+
+# 应开发者要求启用这些选项
+dev:
+    # 启用后开始接收关于 API 请求等的调试消息。
+    debug: false
