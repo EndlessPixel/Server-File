@@ -1,0 +1,54 @@
+# XP 团簇插件配置
+
+# 经验球合并的半径范围（单位：方块）
+merge-radius: 3.0
+
+# 经验球参与合并所需的最小经验值
+min-xp-to-merge: 1
+
+# 插件在每个世界中检查并合并经验球的频率（单位：秒）
+merge-interval-seconds: 1
+
+# 玩家能立即收集经验球的半径范围（单位：方块）
+instant-collect-radius: 3.0
+
+# 是否启用玩家在指定半径内立即收集经验球的功能
+enable-instant-collect: true
+
+# 是否启用服务器范围内经验球的合并功能
+enable-merging: true
+
+# 玩家在合并后的经验球附近收集经验时的经验增益倍数（以百分比形式作为倍数）
+xp-boost-multiplier: 1.1  # 经验增益 10%
+
+# 是否启用玩家在合并经验球附近的经验增益功能
+enable-xp-boost: true
+
+# 经验球合并时是否启用粒子效果（视觉动画）
+enable-merge-animations: true
+
+# 是否防止经验球复制（避免经验球过度生成）
+prevent-orb-duplication: true
+
+# 世界特定设置（如果你想为不同世界设置不同参数）
+world-settings:
+  # 如何为合并经验球配置世界特定设置的示例
+  # 这些设置将覆盖特定世界的全局设置
+  overworld:
+    merge-radius: 3.0
+    min-xp-to-merge: 5
+    merge-interval-seconds: 1.0
+    enable-instant-collect: true
+    enable-merging: true
+    xp-boost-multiplier: 1.5  # 更高的经验增益
+    enable-xp-boost: true
+    enable-merge-animations: true
+  nether:
+    merge-radius: 5.0  # 下界的不同半径
+    min-xp-to-merge: 10
+    merge-interval-seconds: 1.0  # 下界的检查间隔更长
+    enable-instant-collect: false  # 在下界禁用立即收集功能
+    enable-merging: true
+    xp-boost-multiplier: 1.75  # 下界更高的经验增益
+    enable-xp-boost: true
+    enable-merge-animations: false  # 在下界禁用动画效果
