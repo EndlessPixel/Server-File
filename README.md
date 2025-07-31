@@ -1,2 +1,18 @@
-# Server-File
-EndlessPixel Minecraft Server部分开源文件
+# EndlessPixel Minecraft Server部分开源文件
+
+## 仓库说明
+此仓库包含EndlessPixel Minecraft服务器的部分开源文件，供开发者和爱好者参考。
+
+---
+
+## 重要声明
+- **文件内容**：此仓库不包含任何带有EndlessPixel服务器专属前缀的文件。这些文件已被我们删除，以确保用户隐私和数据安全。
+- **官网代码**：
+  > 此仓库不包含服务器官网代码。如果需要服务器官网代码，请前往仓库 [server](https://github.com/EndlessPixel/server)。
+- **使用限制**：这些文件仅供测试服务器使用，**禁止用于实际开服**。
+- **使用建议**：服务器插件和配置文件仅供参考，建议在使用前进行修改和检查。
+
+---
+
+## 联系我们
+如有疑问或需要进一步帮助，请联系项目维护者。
