@@ -1,0 +1,63 @@
+# 请勿修改此值。
+version: 2
+# 当玩家拥有多个群组时，群组的优先级。
+# 数字越小的群组将优先使用。
+priority: 99
+# 经济系统支持设置。
+# 你需要安装 Vault 和一个经济插件来使用此功能。
+economy:
+  enable: false
+  # 每块领地方块的认领价格。
+  price-per-block: 10.0
+  # 仅计算平面方块，忽略高度。
+  square-only: false
+  # 玩家缩小或删除领地时的退款比例。
+  refund-rate: 0.85
+# 传送功能设置。
+teleportation:
+  # 启用传送功能。
+  enable: true
+  # 传送冷却时间（秒）。0 表示无冷却。
+  cooldown: 15
+  # 传送前的延迟时间（秒）。0 表示无延迟。
+  delay: 3
+# 玩家在整个世界中可以创建的领地数量。
+# 设置为 -1 表示无限制。
+amount-all-over-the-world: 10
+# 各个世界的限制设置。
+# 如果某个世界未在此列出，将使用默认设置。
+# 请勿删除默认设置。
+world-limitations:
+  default:
+    # The maximum amount of dominions a player can create in this world.
+    # Set -1 means no limitation (but still limited by amount-all-over-the-world).
+    amount: 5
+    # The depth limit of sub dominion.
+    # Set to -1 means no limitation, 0 means no sub dominion.
+    max-sub-dominion-depth: 3
+    # Dominion's top no higher than this value.
+    # Should be larger than no-lower-than.
+    no-higher-than: 320
+    # Dominion's bottom no lower than this value.
+    # Should be smaller than no-higher-than.
+    no-lower-than: -64
+    # The maximum size of dominion in X axis (East-West).
+    # Set -1 means no limitation. Should be larger than size-min-x and 0.
+    size-max-x: 64
+    # The maximum size of dominion in Y axis (Height).
+    # Set -1 means no limitation. Should be larger than size-min-y and 0.
+    size-max-y: 64
+    # The maximum size of dominion in Z axis (North-South).
+    # Set -1 means no limitation. Should be larger than size-min-z and 0.
+    size-max-z: 64
+    # The minimum size of dominion in X axis (East-West).
+    # Should be smaller than size-max-x and larger than 0.
+    size-min-x: 1
+    # The minimum size of dominion in Y axis (Height).
+    # Should be smaller than size-max-y and larger than 0.
+    size-min-y: 1
+    # The minimum size of dominion in Z axis (North-South).
+    # Should be smaller than size-max-z and larger than 0.
+    size-min-z: 1
+    # Weather to include all vertical blocks when calculating the size.
+    auto-include-vertical: false

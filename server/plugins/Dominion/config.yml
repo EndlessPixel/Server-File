@@ -1,0 +1,89 @@
+# 请勿修改此值。
+version: 2
+# 数据库设置。
+database:
+  # 支持的类型：sqlite、mysql、pgsql
+  type: sqlite
+  # 数据库的主机地址
+  host: localhost
+  # 数据库的端口号
+  port: '3306'
+  # 数据库名称
+  database: dominion
+  # 数据库用户名
+  username: dominion
+  # 数据库密码
+  password: dominion
+# 多服务器设置
+# 如果你有多个由 BungeeCord 代理的服务器，可以配置并启用此功能。
+# 玩家可以跨多个服务器进行管理和传送。
+# 多服务器模式不支持使用 sqlite 类型的数据库。
+# 关于现有数据的迁移，请参考文档。
+# https://dominion.lunadeer.cn/notes/doc/owner/other/multi-server/
+multi-server:
+  # 启用多服务器模式
+  enable: false
+  # 此服务器的名称
+  # 该名称应与 BC (Velocity) 中配置的名称相同。
+  server-name: server
+  # 此服务器的 ID，在所有服务器中必须唯一。
+  # 必须为正整数。 > 0
+  # 数据库中有数据后请勿更改此值。
+  server-id: 1
+# 插件语言，其他语言文件请查看 plugins/Dominion/languages 文件夹。
+language: zh-cn
+# 自动创建领地的半径。-1 表示禁用。
+auto-create-radius: -1
+# 如果玩家在这些天数内未登录，其领地将被自动清理。
+# 设置为 -1 表示禁用。
+auto-clean-after-days: 30
+# 防止玩家在服务器出生点附近创建领地。
+server-spawn-protection-radius: 50
+# 用于选择创建领地位置的工具。
+select-tool: ARROW
+# 用于显示点击的领地信息的工具。
+info-tool: STRING
+# 插件消息设置。
+plugin-message:
+  # 玩家进入/离开领地时的默认消息。
+  # 变量：{OWNER} - 领地所有者，{DOM} - 领地名称。
+  # 玩家进入领地时的默认消息
+  default-enter-message: '&3你进入了{OWNER} 的领地 {DOM}'
+  # 玩家离开领地时的默认消息
+  default-leave-message: '&3你离开了{OWNER} 的领地 {DOM}'
+  # 消息显示位置。
+  # 支持的类型：BOSS_BAR（首领血条）、ACTION_BAR（动作栏）、TITLE（标题）、SUBTITLE（副标题）、CHAT（聊天框）
+  no-permission-display-place: CHAT
+  enter-leave-display-place: CHAT
+# 在网页地图上渲染领地。
+web-map-renderer:
+  # https://bluemap.bluecolored.de/
+  blue-map: false
+  # https://www.spigotmc.org/resources/dynmap%C2%AE.274/
+  dynmap: false
+# 玩家是否可以将 Residence 数据迁移到领地系统。
+residence-migration: false
+# 拥有 dominion.admin 权限的玩家是否可以绕过领地限制。
+admin-bypass: true
+# 群组头衔设置。
+# 玩家可以在标签列表中使用群组名称作为头衔。
+group-title:
+  enable: true
+  prefix: '['
+  suffix: ']'
+# 外部链接设置。
+external-links:
+  # 命令帮助链接
+  command-help: ''
+  # 文档链接
+  documentation: https://dominion.lunadeer.cn/notes/doc/player/
+# 拥有这些权限节点的玩家不受领地飞行限制的影响。
+fly-permission-nodes:
+- essentials.fly
+- cmi.command.fly
+# 通过互联网检查更新。
+check-update: true
+# 调试模式，若要报告 bug 请开启此模式。
+debug: false
+# 性能记录器，除非你正在调试，否则不要开启。
+timer: false
